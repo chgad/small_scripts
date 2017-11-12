@@ -7,7 +7,7 @@ class LinLine():
     
     def __init__(self, scale, limits, steps):
         self.scale = scale
-        self.limits = limits
+        self.limits = limits if (limits[0] < limits[1]) else (limits[1],limits[0])
         self.steps = steps 
         self.segments = self.scale * "-" + "|"
         self.blank = self.scale * " "
@@ -34,7 +34,7 @@ class LinLine():
         intervall = difference / self.steps      
         # build the Line
         rtrn_axis += "|" + self.steps * self.segments + "-->"
-        rtrn_index = "{}".format(self.limits[0]) 
+        rtrn_index = "{}".format(float(self.limits[0])) 
         for index in range(1,  self.steps+1):
             rtrn_index += self.blank +"{}".format(self.limits[0] + index*intervall)
 
@@ -43,7 +43,7 @@ class LinLine():
 
 
         
-l= LinLine(steps=2, limits=(1,3), scale=10)
+l= LinLine(steps=2, limits=(-3,-1), scale=10)
 l.__help__()
 print(l)
 
