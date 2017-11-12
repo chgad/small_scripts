@@ -1,4 +1,8 @@
-# samll script for evalutaing of which factors of two a number is composed
+# samll script for evalutaing  how a given number n < 255
+# can be represented by powers of to upon 128.
+# The output shall be a concatinated string
+# (some kind of exercise: string --> no use at all)
+
 
 
 
@@ -28,6 +32,9 @@ def show_two(num):
     print(result)
     return result
 
+# I created a small test function to collect 3 basic cases
+# One could expand this further or even use it with pytest
+
 def test():
     
     a=show_two(1)
@@ -37,6 +44,7 @@ def test():
     c=show_two(256)
     assert c == 0
 
+# we define an input to "interactivly" use this script
 num = int(input("Enter Integer smaller than 255"))
 
 show_two(num)
