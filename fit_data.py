@@ -6,8 +6,11 @@ from scipy.optimize import curve_fit
 k_b = 1.38e-23
 G_2 = (2*np.pi*8/(0.4e-9))**2
 M = 0.068/(6e23)
-print(G_2)
-print(k_b*G_2/M)
+
+plt.xlabel("Temperature [K]")
+plt.ylabel("Intensity")
+
+
 
 def fit_function(T,b):
     return 0.31*np.exp(-(k_b*G_2/(M*b**2)*T))
@@ -22,16 +25,18 @@ data = [(0,0.31),
         (500,0.03)
         ]
 
-zipped = zip(*data)
-plt.scatter(*zipped)
+plt.plot(t, I, label="data, linear intrapolated")
+plt.plot(t, I, 'or', label="data, points")
 
-plt.plot(t, I)
-plt.plot(t, I, 'or')
 fitParams, fitCo = curve_fit(fit_function,t ,I, b0 )
 
 print(fitParams)
-plt.plot(t,fit_function(t,20e13), label="guessed wit 20 THz")
-plt.plot(t, fit_function(t, fitParams[0]), label=" calculated w={:.3}THz".format(fitParams[0]/1e12))
+
+plt.plot(t,fit_function(t,20e13), label="guessed with 20 THz")
+
+plt.plot(t, fit_function(t, fitParams[0]),
+        label=" calculated w={:.3}THz".format(fitParams[0]/1e12))
+
 plt.legend(loc="best")
 
 plt.show()
