@@ -14,7 +14,7 @@ T = np.linspace(0,500, 10000)
 
 l_s = [1,2,4]
 pyplot.xlabel("Temperature [K]")
-pyplot.ylabel("Intensity I_l00")
+pyplot.ylabel(r"Intensity $I_{l00}$")
 
 
 for i in l_s:
