@@ -1,5 +1,6 @@
 import numpy as np
 from matplotlib import pyplot
+# used for uebung 7 Festkoerper 1 VL
 
 k_b = 1.38e-23
 G_2 = (2*np.pi/(0.4e-9))**2

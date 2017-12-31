@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 
 from scipy.optimize import curve_fit
 
+# used for uebung 7 Festkoerper 1 VL
+
+
 k_b = 1.38e-23
 G_2 = (2*np.pi*8/(0.4e-9))**2
 M = 0.068/(6e23)
